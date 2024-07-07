@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Battle{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="battle-container">
+        <h1 class="text-outline">Battle</h1>
+        <div class="battle-field">
+            <!-- Player Character -->
+            <div class="player-character">
+                <h2 class="text-outline">Your Character</h2>
+                <!-- Character stats here -->
+                <p class="text-outline">Name: {{ character.name }}</p>
+                <p class="text-outline">HP: {{ character.hp }}</p>
+                <p class="text-outline">Armor: {{ character.armor }}</p>
+                <p class="text-outline">Power: {{ character.power }}</p>
+                <p class="text-outline">Stamina: {{ character.stamina }}</p>
+            </div>
+            <!-- Monster -->
+            <div class="monster">
+                <h2 class="text-outline">Enemy</h2>
+                <!-- Monster stats here -->
+                <p class="text-outline">Name: {{ monster.name }}</p>
+                <p class="text-outline">HP: {{ monster.hp }}</p>
+                <p class="text-outline">Armor: {{ monster.armor }}</p>
+                <p class="text-outline">Power: {{ monster.power }}</p>
+                <p class="text-outline">Stamina: {{ monster.stamina }}</p>
+            </div>
+            <!-- Battle Options -->
+            <div class="battle-options">
+                <h2 class="text-outline">Actions</h2>
+                <form method="post" action="{% url 'battle_action' %}">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="attack">Attack</button>
+                    <button type="submit" name="action" value="defend">Defend</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+
+body {
+    background-image: url("../images/profile_background.jpg");
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.text-outline {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.profile-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.rarity-common { color: white; }
+.rarity-uncommon { color: green; }
+.rarity-rare { color: blue; }
+.rarity-epic { color: purple; }
+.rarity-legendary { color: orange; }
+
+.shop-link {
+    color: gold;
+    text-decoration: none;
+}
+
+.shop-link:hover {
+    text-decoration: underline;
+}
+
+/* Shop */
+.shop-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800px;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-details {
+    text-align: left;
+}
+
+.item-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.item-price {
+    color: gold;
+    font-weight: bold;
+}
+
+.item-description {
+    margin: 10px 0 0;
+    font-style: italic;
+}
+
+.buy-button {
+    background-color: gold;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: darkgoldenrod;
+}
+
+.back-link {
+    margin-top: 20px;
+}
+
+.profile-link {
+    color: gold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.profile-link:hover {
+    color: darkgoldenrod;
+}
+
+.sell-button {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.sell-button:hover {
+    background-color: darkred;
+}
+
+.item-container {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.item-details {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+.battle-link {
+    color: red;
+    text-decoration: none;
+}
+
+.battle-link:hover {
+    text-decoration: underline;
+}
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+.messages li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+}

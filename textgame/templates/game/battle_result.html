@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Battle Result{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="battle-result-container">
+        <h1 class="text-outline">Battle Result</h1>
+        <p class="text-outline">You defeated {{ monster.name }}!</p>
+        <p class="text-outline">Experience Gained: {{ experience_gained }}</p>
+        <p class="text-outline">Money Gained: {{ money_gained }} coins</p>
+        <p class="text-outline">Return to <a href="{% url 'profile' %}" class="battle-link">Profile</a></p>
+    </div>
+</body>
+</html>

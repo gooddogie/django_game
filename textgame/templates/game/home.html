@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome to the Game{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="center-container">
+        <h1 class="text-outline">Welcome to the Game</h1>
+        {% if user.is_authenticated %}
+            <p class="text-outline">Go to your <a href="{% url 'profile' %}">profile</a>.</p>
+            <p class="text-outline"><a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+            <p class="text-outline">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to play.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

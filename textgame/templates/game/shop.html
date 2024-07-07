@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Shop{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/shop_background.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-container">
+        <h1 class="text-outline">Shop</h1>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <ul class="item-list">
+            {% for item in items %}
+            <li class="item">
+                <div class="item-details">
+                    <strong class="item-name">{{ item.name }}</strong> - <span class="item-price">{{ item.price }} coins</span>
+                    <p class="item-description">{{ item.description }}</p>
+                </div>
+                <a href="{% url 'buy_item' item.id %}" class="buy-button">Buy</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="back-link">Back to <a href="{% url 'profile' %}" class="profile-link">profile</a></p>
+    </div>
+</body>
+</html>

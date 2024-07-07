@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Profile{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <h1 class="text-outline">Profile</h1>
+        <p class="text-outline">Name: {{ character.name }}</p>
+        <p class="text-outline">Level: {{ character.level }}</p>
+        <p class="text-outline">Experience: {{ character.experience }}</p>
+        <p class="text-outline">Money: {{ character.money }} coins</p>
+        <p class="text-outline">HP: {{ character.hp }} + {{ total_item_hp }}</p>
+        <p class="text-outline">Armor: {{ character.armor }} + {{ total_item_armor }}</p>
+        <p class="text-outline">Power: {{ character.power }} + {{ total_item_power }}</p>
+        
+        <h2 class="text-outline">Inventory</h2>
+        {% if items_with_half_price %}
+            {% for item_with_price in items_with_half_price %}
+            <div class="item-container">
+                <div class="item-details rarity-{{ item_with_price.item.rarity }} text-outline">
+                    <strong>{{ item_with_price.item.name }}</strong> ({{ item_with_price.item.get_rarity_display }}) - {{ item_with_price.item.description }}<br>
+                    Armor: {{ item_with_price.item.armor }} | Power: {{ item_with_price.item.power }} | HP: {{ item_with_price.item.hp }}<br>
+                    Durability: {{ item_with_price.item.durability }}<br>
+                </div>
+                <a href="{% url 'sell_item' item_with_price.item.id %}" class="sell-button">Sell for {{ item_with_price.half_price }} coins</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-outline">You have no items.</p>
+        {% endif %}
+
+        <p class="text-outline">Go to the <a href="{% url 'shop' %}" class="shop-link">shop</a> to buy items.</p>
+        <p class="text-outline">Go to the <a href="{% url 'battle' %}" class="battle-link">battle</a> to earn exp and money.</p>
+    </div>
+</body>
+</html>
